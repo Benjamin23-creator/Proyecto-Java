@@ -1,5 +1,7 @@
 package org.example.model;
 
+import org.example.excepciones.PedidoInvalidoException;
+
 public class Pedido {
     private Cliente cliente;
     private Producto producto;
@@ -13,10 +15,10 @@ public class Pedido {
 
     public static Pedido crearPedido(Cliente cliente, Producto producto, int cantidad) {
         if (cantidad <= 0) {
-            throw new IllegalArgumentException("La cantidad debe ser mayor que cero");
+            throw new PedidoInvalidoException("La cantidad debe ser mayor que cero");
         }
         if (cantidad > producto.getStock()) {
-            throw new IllegalArgumentException("La cantidad no puede ser mayor que el stock disponible");
+            throw new PedidoInvalidoException("La cantidad no puede ser mayor que el stock disponible");
         }
         return new Pedido(cliente, producto, cantidad);
     }

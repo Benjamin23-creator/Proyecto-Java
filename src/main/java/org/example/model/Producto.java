@@ -1,5 +1,7 @@
 package org.example.model;
 
+import org.example.excepciones.ProductoInvalidoException;
+
 public class Producto {
     private String nombre;
     private double precio;
@@ -15,10 +17,10 @@ public class Producto {
 
     public static Producto crearProducto(String nombre, double precio, int stock) {
         if (precio <= 0) {
-            throw new IllegalArgumentException("El precio debe ser mayor que cero");
+            throw new ProductoInvalidoException("El precio debe ser mayor que cero");
         }
         if (stock < 0) {
-            throw new IllegalArgumentException("El stock no puede ser negativo");
+            throw new ProductoInvalidoException("El stock no puede ser negativo");
         }
         return new Producto(nombre, precio, stock);
     }
