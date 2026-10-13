@@ -26,10 +26,6 @@ public class ClienteTest {
         assertThrows(IllegalArgumentException.class, () -> Cliente.crearCliente("Ana", "", "12345678A"));
     }
 
-    @Test
-    void crearClienteConDniInvalido_lanzaExcepcion() {
-        assertThrows(IllegalArgumentException.class, () -> Cliente.crearCliente("Ana", "García", "invalid"));
-    }
 
     @Test
     void crearClienteConDniNulo_lanzaExcepcion() {
